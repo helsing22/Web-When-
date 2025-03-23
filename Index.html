@@ -131,7 +131,6 @@
 
             <h2>Capturas de Pantalla</h2>
             <div class="screenshots">
-                <!-- Aquí puedes agregar las capturas de pantalla -->
                 <div class="screenshot">
                     <img src="screenshot1.png" alt="Captura de Pantalla 1">
                 </div>
@@ -144,8 +143,25 @@
             </div>
         </div>
         <footer>
-            <a href="#" class="button">Reservar</a>
+            <a href="#" class="button" id="reserveButton">Reservar</a>
+            <p>Reservas: <span id="counter">0</span></p>
         </footer>
     </div>
+
+    <script>
+        // Inicializar el contador
+        let count = 0;
+
+        // Obtener el botón y el elemento del contador
+        const reserveButton = document.getElementById('reserveButton');
+        const counterDisplay = document.getElementById('counter');
+
+        // Agregar un evento de clic al botón
+        reserveButton.addEventListener('click', function(event) {
+            event.preventDefault(); // Evitar el comportamiento por defecto del enlace
+            count++; // Incrementar el contador
+            counterDisplay.textContent = count; // Actualizar el contador en la página
+        });
+    </script>
 </body>
 </html>
