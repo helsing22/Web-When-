@@ -12,6 +12,7 @@
             font-family: Arial, sans-serif;
             overflow: hidden;
             color: #e0e0e0;
+            background-color: #e0f7fa; /* Color de fondo azul claro */
         }
         header {
             text-align: center;
@@ -21,17 +22,17 @@
         }
         h1 {
             font-size: 3em;
-            text-shadow: 2px 2px 0 #ff0000;
+            text-shadow: 2px 2px 0 #00796b; /* Sombra en un tono más oscuro de azul */
             font-family: 'Press Start 2P', cursive;
         }
         .container {
             max-width: 800px;
             margin: 20px auto;
             padding: 20px;
-            background: rgba(50, 50, 50, 0.8);
-            border: 2px solid #ff0000;
+            background: rgba(255, 255, 255, 0.8); /* Fondo blanco con opacidad */
+            border: 2px solid #00796b; /* Borde en un tono más oscuro de azul */
             border-radius: 10px;
-            box-shadow: 0 0 10px #ff0000;
+            box-shadow: 0 0 10px #00796b; /* Sombra en un tono más oscuro de azul */
             position: relative;
             z-index: 10;
         }
@@ -44,8 +45,8 @@
         footer {
             text-align: center;
             padding: 20px;
-            background: rgba(30, 30, 30, 0.9);
-            border-top: 5px solid #ff0000;
+            background: rgba(255, 255, 255, 0.9); /* Fondo blanco con opacidad */
+            border-top: 5px solid #00796b; /* Borde en un tono más oscuro de azul */
             position: relative;
             bottom: 0;
             width: 100%;
@@ -55,14 +56,14 @@
             display: inline-block;
             padding: 10px 20px;
             margin: 20px 0;
-            background-color: #ff0000;
+            background-color: #00796b; /* Color de fondo azul oscuro */
             color: #fff;
             text-decoration: none;
             border-radius: 5px;
             transition: background-color 0.3s;
         }
         .button:hover {
-            background-color: #cc0000;
+            background-color: #004d40; /* Color de fondo azul más oscuro al pasar el ratón */
         }
         .screenshots {
             display: flex;
@@ -72,7 +73,7 @@
         .screenshot {
             flex: 1;
             margin: 0 10px;
-            border: 2px solid #ff0000;
+            border: 2px solid #00796b; /* Borde en un tono más oscuro de azul */
             border-radius: 5px;
             overflow: hidden;
         }
@@ -120,13 +121,32 @@
             <h2>Historia</h2>
             <p class="story">
                 Poco se sabe del comienzo de todo. Un día en las noticias salió sobre un experimento científico que falló y 7 días después llovió a cántaros por todas partes. No era una lluvia común, en vez de agua caían gotas luminosas de varios colores. A pesar de que los científicos aconsejaron evitar todo contacto con esta por ser peligrosa, muchas de las personas hicieron caso omiso. Y así es como el 30% de la humanidad contrajo la plaga roja. 1 día después el mundo estaba lleno de mutantes. Al día de hoy han pasado 6 meses desde que todo comenzó, no se sabe cuántas personas aún viven ahí fuera pero los pocos sobrevivientes que quedan en la faz de la tierra hacen lo mejor que pueden para evadir a los mutantes y a las lluvias arcoiris.
-        <h2>Mecánicas del Juego</h2>
-        <p class="mechanics">
-            - **Exploración**: Navega por un mundo abierto lleno de peligros y secretos. <br>
-            - **Estrategia**: Usa tus recursos sabiamente para sobrevivir. <br>
-            - **Sigilo**: Evita a los mutantes y las lluvias arcoiris para mantenerte con vida. <br>
-            - **Supervivencia**: Encuentra comida y refugio mientras evitas el contacto con la plaga roja.
-        </p>
+            </p>
+            <h2>Mecánicas del Juego</h2>
+            <p class="mechanics">
+                - **Exploración**: Navega por un mundo abierto lleno de peligros y secretos. <br>
+                - **Estrategia**: Usa tus recursos sabiamente para sobrevivir. <br>
+                - **Sigilo**: Evita a los mutantes y las lluvias arcoiris para mantenerte con vida. <br>
+                - **Supervivencia**: Encuentra comida y refugio mientras evitas el contacto con la plaga roja.
+            </p>
 
-        <h2>Capturas de Pantalla</h2>
-        <div class="screenshots"
+            <h2>Capturas de Pantalla</h2>
+            <div class="screenshots">
+                <!-- Aquí puedes agregar las capturas de pantalla -->
+                <div class="screenshot">
+                    <img src="screenshot1.png" alt="Captura de Pantalla 1">
+                </div>
+                <div class="screenshot">
+                    <img src="screenshot2.png" alt="Captura de Pantalla 2">
+                </div>
+                <div class="screenshot">
+                    <img src="screenshot3.png" alt="Captura de Pantalla 3">
+                </div>
+            </div>
+        </div>
+        <footer>
+            <a href="#" class="button">Descargar Ahora</a>
+        </footer>
+    </div>
+</body>
+</html>
