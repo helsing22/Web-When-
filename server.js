@@ -4,25 +4,25 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = 3000;
 
 // Middleware
 app.use(cors());
 app.use(bodyParser.json());
 
-// Conectar a la base de datos SQLite
+// Conexión a la base de datos SQLite
 const db = new sqlite3.Database(':memory:', (err) => {
     if (err) {
         console.error(err.message);
     } else {
-        console.log('Conectado a la base de datos SQLite.');
+        console.log('Conectado a la base de datos SQLite en memoria.');
         // Crear la tabla de reservas
         db.run('CREATE TABLE reservations (id INTEGER PRIMARY KEY, count INTEGER)', (err) => {
             if (err) {
                 console.error(err.message);
             } else {
                 // Insertar un registro inicial
-                db.run('INSERT INTO reservations (count) VALUES (0)');
+                db.run('INSERT INTO reservations (id, count) VALUES (1, 0)');
             }
         });
     }
