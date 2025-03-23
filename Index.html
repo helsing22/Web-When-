@@ -149,19 +149,34 @@
     </div>
 
     <script>
-        // Inicializar el contador
-        let count = 0;
+        // Inicializar el contador desde localStorage
+        let count = localStorage.getItem('reservationCount') ? parseInt(localStorage.getItem('reservationCount')) : 0;
 
         // Obtener el botón y el elemento del contador
         const reserveButton = document.getElementById('reserveButton');
         const counterDisplay = document.getElementById('counter');
 
-        // Agregar un evento de clic al botón
-        reserveButton.addEventListener('click', function(event) {
-            event.preventDefault(); // Evitar el comportamiento por defecto del enlace
-            count++; // Incrementar el contador
-            counterDisplay.textContent = count; // Actualizar el contador en la página
-        });
+        // Mostrar el contador en la página
+        counterDisplay.textContent = count;
+
+        // Verificar si el usuario ya ha hecho una reserva
+        const hasReserved = localStorage.getItem('hasReserved');
+
+        // Si el usuario no ha reservado, agregar el evento de clic
+        if (!hasReserved) {
+            reserveButton.addEventListener('click', function(event) {
+                event.preventDefault(); // Evitar el comportamiento por defecto del enlace
+                count++; // Incrementar el contador
+                counterDisplay.textContent = count; // Actualizar el contador en la página
+                localStorage.setItem('reservationCount', count); // Guardar el contador en localStorage
+                localStorage.setItem('hasReserved', true); // Marcar que el usuario ha reservado
+                reserveButton.disabled = true; // Deshabilitar el botón
+                reserveButton.textContent = "Reservado"; // Cambiar el texto del botón
+            });
+        } else {
+            reserveButton.disabled = true; // Deshabilitar el botón si ya ha reservado
+            reserveButton.textContent = "Reservado"; // Cambiar el texto del botón
+        }
     </script>
 </body>
 </html>
