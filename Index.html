@@ -9,7 +9,7 @@
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Press Start 2P', cursive; /* Usar la fuente del juego */
+            font-family: Arial, sans-serif; /* Fuente general */
             color: #e0e0e0;
             background-color: #e0f7fa; /* Color de fondo azul claro */
             overflow-x: hidden; /* Evitar el scroll horizontal */
@@ -25,6 +25,7 @@
         h1 {
             font-size: 3em;
             text-shadow: 2px 2px 0 #00796b; /* Sombra en un tono más oscuro de azul */
+            font-family: 'Press Start 2P', cursive; /* Solo el título en pixel art */
         }
 
         .container {
@@ -39,8 +40,13 @@
             z-index: 10;
         }
 
+        h2 {
+            font-size: 1.8em; /* Tamaño de fuente para subtítulos */
+            margin: 15px 0;
+        }
+
         .story, .mechanics {
-            font-size: 1.2em;
+            font-size: 1em; /* Tamaño de fuente más pequeño para texto */
             line-height: 1.5;
             text-align: justify;
             margin-bottom: 20px;
@@ -106,6 +112,26 @@
         /* Scroll suave */
         html {
             scroll-behavior: smooth;
+        }
+
+        /* Estilos para dispositivos móviles */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2.5em; /* Tamaño de fuente más pequeño para el título en móviles */
+            }
+
+            h2 {
+                font-size: 1.5em; /* Tamaño de fuente más pequeño para subtítulos en móviles */
+            }
+
+            .story, .mechanics {
+                font-size: 0.9em; /* Tamaño de fuente más pequeño para texto en móviles */
+            }
+
+            .screenshot {
+                flex: 1 1 100%; /* Capturas de pantalla ocupan todo el ancho en móviles */
+                margin: 10px 0; /* Margen vertical en móviles */
+            }
         }
     </style>
 </head>
