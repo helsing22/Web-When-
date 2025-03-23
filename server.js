@@ -1,5 +1,5 @@
 <script>
-    const apiUrl = 'https://github.com/helsing22/Web-When-/edit/main/server.js'; // Cambia esto por la URL de tu API real
+    const apiUrl = 'https://github.com/helsing22/Web-When-/blob/main/server.js'; // Cambia esto por la URL de tu API real
 
     // Obtener el total de reservas desde el backend
     async function fetchTotalReservations() {
