@@ -3,99 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>When - Videojuego de Terror</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Puedes agregar un archivo CSS para estilos -->
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"> <!-- Fuente pixel art -->
+    <title>When - Juego de Terror en Pixel Art</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #121212;
-            color: #ffffff;
+            background-color: #000;
+            color: #fff;
+            font-family: 'Press Start 2P', cursive;
             margin: 0;
             padding: 0;
+            overflow: hidden;
         }
         header {
-            background-color: #1a1a1a;
-            padding: 20px;
             text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            border-bottom: 5px solid #ff0000;
         }
         h1 {
-            font-family: 'Press Start 2P', cursive; /* Aplicar la fuente pixel art */
-            font-size: 3em; /* Ajusta el tamaño según sea necesario */
-            margin: 0;
+            font-size: 3em;
+            text-shadow: 2px 2px 0 #ff0000;
         }
         .container {
-            width: 80%;
-            margin: auto;
+            max-width: 800px;
+            margin: 20px auto;
             padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border: 2px solid #ff0000;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #ff0000;
         }
-        .game-description {
-            margin: 20px 0;
-        }
-        .features {
-            list-style-type: none;
-            padding: 0;
-        }
-        .features li {
-            background: #333;
-            margin: 10px 0;
-            padding: 10px;
-            border-radius: 5px;
+        .story {
+            font-size: 1.2em;
+            line-height: 1.5;
+            text-align: justify;
         }
         footer {
             text-align: center;
             padding: 20px;
-            background-color: #1a1a1a;
+            background: rgba(0, 0, 0, 0.8);
+            border-top: 5px solid #ff0000;
             position: relative;
             bottom: 0;
             width: 100%;
         }
-        img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 20px 0;
+            background-color: #ff0000;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #cc0000;
         }
     </style>
 </head>
 <body>
-
-<header>
-    <h1>When</h1>
-    <p>El videojuego de terror que te mantendrá al borde de tu asiento</p>
-</header>
-
-<div class="container">
-    <section class="game-description">
-        <h2>Descripción del Juego</h2>
-        <p>"When" es un juego de terror que te sumerge en un mundo oscuro y misterioso. Explora entornos inquietantes en una ciudad devastada, resuelve acertijos, encuentra una manera eficiente de moverte y enfrenta tus peores miedos mientras intentas sobrevivir al cataclismo en que te encuentras y descubre la verdad sobre los eventos aterradores que te rodean.</p>
-    </section>
-
-    <section>
-        <h2>Características</h2>
-        <ul class="features">
-            <li>Gráficos pixelart y atmósfera retro clásica</li>
-            <li>Historia intrigante</li>
-            <li>Desafíos y acertijos que pondrán a prueba tu ingenio</li>
-            <li>Sonido envolvente que aumenta la tensión</li>
-        </ul>
-    </section>
-
-    <section>
-        <h2>Imágenes del Juego</h2>
-        <img src="imagen1" alt="Captura de pantalla 1">
-        <img src="imagen2.jpg" alt="Captura de pantalla 2">
-        <img src="imagen3.jpg" alt="Captura de pantalla 3">
-    </section>
-
-    <section>
-        <h2>¡Pronto Disponible!</h2>
-        <p>Visita nuestra página para más información y actualizaciones sobre la fecha de lanzamiento.</p>
-    </section>
-</div>
-
-<footer>
-    <p>&copy; 2025 When. Todos los derechos reservados.</p>
-</footer>
-
+    <header>
+        <h1>When</h1>
+    </header>
+    <div class="container">
+        <h2>Historia</h2>
+        <p class="story">
+            Poco se sabe del comienzo de todo. Un día en las noticias salió sobre un experimento científico que falló y 7 días después llovió a cántaros por todas partes. No era una lluvia común, en vez de agua caían gotas luminosas de varios colores. A pesar de que los científicos aconsejaron evitar todo contacto con esta por ser peligrosa, muchas de las personas hicieron caso omiso. Y así es como el 30% de la humanidad contrajo la plaga roja. 1 día después el mundo estaba lleno de mutantes. Al día de hoy han pasado 6 meses desde que todo comenzó, no se sabe cuántas personas aún viven ahí fuera pero los pocos sobrevivientes que quedan en la faz de la tierra hacen lo mejor que pueden para evadir a los mutantes y a las lluvias arcoiris.
+        </p>
+        <a href="#" class="button">Jugar Cuando este Disponible en Itchio</a>
+    </div>
+    <footer>
+        <p>&copy; 2025 When. Todos los derechos reservados.</p>
+    </footer>
 </body>
 </html>
