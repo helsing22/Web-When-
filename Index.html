@@ -9,24 +9,26 @@
         body {
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
-            overflow: hidden;
+            font-family: 'Press Start 2P', cursive; /* Usar la fuente del juego */
             color: #e0e0e0;
             background-color: #e0f7fa; /* Color de fondo azul claro */
+            overflow-x: hidden; /* Evitar el scroll horizontal */
         }
+
         header {
             text-align: center;
             padding: 20px;
             position: relative;
             z-index: 10;
         }
+
         h1 {
             font-size: 3em;
             text-shadow: 2px 2px 0 #00796b; /* Sombra en un tono más oscuro de azul */
-            font-family: 'Press Start 2P', cursive;
         }
+
         .container {
-            max-width: 800px;
+            max-width: 90%; /* Ajustar el ancho para móviles */
             margin: 20px auto;
             padding: 20px;
             background: rgba(30, 30, 30, 0.9); /* Fondo oscuro */
@@ -36,12 +38,14 @@
             position: relative;
             z-index: 10;
         }
+
         .story, .mechanics {
             font-size: 1.2em;
             line-height: 1.5;
             text-align: justify;
             margin-bottom: 20px;
         }
+
         footer {
             text-align: center;
             padding: 20px;
@@ -52,6 +56,7 @@
             width: 100%;
             z-index: 10;
         }
+
         .button {
             display: inline-block;
             padding: 10px 20px;
@@ -62,25 +67,31 @@
             border-radius: 5px;
             transition: background-color 0.3s;
         }
+
         .button:hover {
             background-color: #004d40; /* Color de fondo azul más oscuro al pasar el ratón */
         }
+
         .screenshots {
             display: flex;
+            flex-wrap: wrap; /* Permitir que las capturas de pantalla se ajusten */
             justify-content: space-between;
             margin-top: 20px;
         }
+
         .screenshot {
-            flex: 1;
-            margin: 0 10px;
+            flex: 1 1 30%; /* Ajustar el tamaño de las capturas */
+            margin: 10px;
             border: 2px solid #00bcd4; /* Borde azul claro */
             border-radius: 5px;
             overflow: hidden;
         }
+
         .screenshot img {
             width: 100%;
             height: auto;
         }
+
         /* Parallax Background */
         .parallax {
             background-image: url('https://art.pixilart.com/sr23edaed22dcaws3.png'); /* Cambia esto por la URL de tu imagen de fondo */
@@ -90,6 +101,11 @@
             background-repeat: no-repeat;
             background-size: cover;
             position: relative;
+        }
+
+        /* Scroll suave */
+        html {
+            scroll-behavior: smooth;
         }
     </style>
 </head>
@@ -101,12 +117,12 @@
         <div class="container">
             <h2>Historia</h2>
             <p class="story">
-                Poco se sabe del comienzo de todo. Un día en las noticias salió sobre un experimento científico que falló y 7 días después llovió a cántaros por todas partes. No era una lluvia común, en vez de agua caían gotas luminosas de varios colores. A pesar de que los científicos aconsejaron evitar todo contacto con esta por ser peligrosa, muchas de las personas hicieron caso omiso. Y así es como el 30% de la humanidad contrajo la plaga roja. 1 día después el mundo estaba lleno de mutantes. Al día de hoy han pasado 6 meses desde que todo comenzó, no se sabe cuántas personas aún viven ahí fuera pero los pocos sobrevivientes que quedan en la faz de la tierra hacen lo mejor que pueden para evadir a los mutantes y a las lluvias arcoiris.
+                Poco se sabe sobre el comienzo de todo. Un día, las noticias informaron sobre un experimento científico que falló, y siete días después, llovió intensamente en todas partes. No era una lluvia común; en lugar de agua, caían gotas luminosas de varios colores. A pesar de que los científicos aconsejaron evitar todo contacto con estas gotas por ser peligrosas, muchas personas hicieron caso omiso. Así fue como el 30% de la humanidad contrajo la plaga roja. Un día después, el mundo estaba lleno de mutantes. Hoy, han pasado seis meses desde que todo comenzó. No se sabe cuántas personas aún viven ahí fuera, pero los pocos sobrevivientes que quedan en la faz de la tierra hacen lo mejor que pueden para evadir a los mutantes y a las lluvias arcoíris.
             </p>
             <h2>Mecánicas del Juego</h2>
             <p class="mechanics">
                 - **Estrategia**: Usa tus recursos sabiamente para sobrevivir. <br>
-                - **Sigilo**: Evita a los mutantes y las lluvias arcoiris para mantenerte con vida. <br>
+                - **Sigilo**: Evita a los mutantes y las lluvias arcoíris para mantenerte con vida. <br>
                 - **Supervivencia**: Encuentra comida y refugio mientras evitas el contacto con la plaga roja.
             </p>
 
