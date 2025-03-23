@@ -7,21 +7,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <style>
         body {
-            background-color: #1a1a1a;
-            color: #e0e0e0;
-            font-family: 'Press Start 2P', cursive;
             margin: 0;
             padding: 0;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            color: #e0e0e0;
         }
         header {
             text-align: center;
             padding: 20px;
-            background: rgba(30, 30, 30, 0.9);
-            border-bottom: 5px solid #ff0000;
+            position: relative;
+            z-index: 10;
         }
         h1 {
             font-size: 3em;
             text-shadow: 2px 2px 0 #ff0000;
+            font-family: 'Press Start 2P', cursive;
         }
         .container {
             max-width: 800px;
@@ -31,6 +32,8 @@
             border: 2px solid #ff0000;
             border-radius: 10px;
             box-shadow: 0 0 10px #ff0000;
+            position: relative;
+            z-index: 10;
         }
         .story, .mechanics {
             font-size: 1.2em;
@@ -46,6 +49,7 @@
             position: relative;
             bottom: 0;
             width: 100%;
+            z-index: 10;
         }
         .button {
             display: inline-block;
@@ -76,18 +80,46 @@
             width: 100%;
             height: auto;
         }
+        /* Parallax Background */
+        .parallax {
+            background-image: url('https://your-image-url.com/background.jpg'); /* Cambia esto por la URL de tu imagen de fondo */
+            height: 100vh;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+            overflow: hidden;
+        }
+        .particle {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            background: white;
+            border-radius: 50%;
+            animation: particle-animation 5s infinite;
+        }
+        @keyframes particle-animation {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) scale(0);
+                opacity: 0;
+            }
+        }
     </style>
 </head>
 <body>
-    <header>
-        <h1>When</h1>
-    </header>
-    <div class="container">
-        <h2>Historia</h2>
-        <p class="story">
-            Poco se sabe del comienzo de todo. Un día en las noticias salió sobre un experimento científico que falló y 7 días después llovió a cántaros por todas partes. No era una lluvia común, en vez de agua caían gotas luminosas de varios colores. A pesar de que los científicos aconsejaron evitar todo contacto con esta por ser peligrosa, muchas de las personas hicieron caso omiso. Y así es como el 30% de la humanidad contrajo la plaga roja. 1 día después el mundo estaba lleno de mutantes. Al día de hoy han pasado 6 meses desde que todo comenzó, no se sabe cuántas personas aún viven ahí fuera pero los pocos sobrevivientes que quedan en la faz de la tierra hacen lo mejor que pueden para evadir a los mutantes y a las lluvias arcoiris.
-        </p>
-        
+    <div class="parallax">
+        <header>
+            <h1>When</h1>
+        </header>
+        <div class="container">
+            <h2>Historia</h2>
+            <p class="story">
+                Poco se sabe del comienzo de todo. Un día en las noticias salió sobre un experimento científico que falló y 7 días después llovió a cántaros por todas partes. No era una lluvia común, en vez de agua caían gotas luminosas de varios colores. A pesar de que los científicos aconsejaron evitar todo contacto con esta por ser peligrosa, muchas de las personas hicieron caso omiso. Y así es como el 30% de la humanidad contrajo la plaga roja. 1 día después el mundo estaba lleno de mutantes. Al día de hoy han pasado 6 meses desde que todo comenzó, no se sabe cuántas personas aún viven ahí fuera pero los pocos sobrevivientes que quedan en la faz de la tierra hacen lo mejor que pueden para evadir a los mutantes y a las lluvias arcoiris.
         <h2>Mecánicas del Juego</h2>
         <p class="mechanics">
             - **Exploración**: Navega por un mundo abierto lleno de peligros y secretos. <br>
@@ -97,4 +129,4 @@
         </p>
 
         <h2>Capturas de Pantalla</h2>
-        <div class="screenshots
+        <div class="screenshots"
