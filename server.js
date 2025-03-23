@@ -1,57 +1,58 @@
-const express = require('express');
-const sqlite3 = require('sqlite3').verbose();
-const bodyParser = require('body-parser');
-const cors = require('cors');
+<script>
+    const apiUrl = 'https://github.com/helsing22/Web-When-/edit/main/server.js'; // Cambia esto por la URL de tu API real
 
-const app = express();
-const PORT = 3000;
-
-// Middleware
-app.use(cors());
-app.use(bodyParser.json());
-
-// Conexión a la base de datos SQLite
-const db = new sqlite3.Database(':memory:', (err) => {
-    if (err) {
-        console.error(err.message);
-    } else {
-        console.log('Conectado a la base de datos SQLite en memoria.');
-        // Crear la tabla de reservas
-        db.run('CREATE TABLE reservations (id INTEGER PRIMARY KEY, count INTEGER)', (err) => {
-            if (err) {
-                console.error(err.message);
-            } else {
-                // Insertar un registro inicial
-                db.run('INSERT INTO reservations (id, count) VALUES (1, 0)');
+    // Obtener el total de reservas desde el backend
+    async function fetchTotalReservations() {
+        try {
+            const response = await fetch(apiUrl);
+            if (!response.ok) {
+                throw new Error('Error al obtener el total de reservas');
             }
-        });
+            const data = await response.json();
+            return data.totalReservations; // Asegúrate de que tu API devuelva un objeto con esta propiedad
+        } catch (error) {
+            console.error('Error al obtener el total de reservas:', error);
+            return 0; // Retornar 0 en caso de error
+        }
     }
-});
 
-// Obtener el total de reservas
-app.get('/reservations', (req, res) => {
-    db.get('SELECT count FROM reservations WHERE id = 1', [], (err, row) => {
-        if (err) {
-            res.status(500).json({ error: err.message });
-        } else {
-            res.json({ totalReservations: row.count });
+    // Inicializar el contador desde el backend
+    async function initializeCounter() {
+        const totalReservations = await fetchTotalReservations();
+        document.getElementById('counter').textContent = totalReservations;
+
+        // Verificar si el usuario ya ha hecho una reserva
+        const hasReserved = localStorage.getItem('hasReserved');
+
+        // Si el usuario no ha reservado, agregar el evento de clic
+        if (!hasReserved) {
+            document.getElementById('reserveButton').addEventListener('click', async function(event) {
+                event.preventDefault(); // Evitar el comportamiento por defecto del enlace
+
+                // Actualizar el total de reservas en el backend
+                try {
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ increment: 1 }) // Asegúrate de que tu API acepte este formato
+                    });
+
+                    if (!response.ok) {
+                        throw new Error('Error al realizar la reserva');
+                    }
+
+                    const updatedData = await response.json();
+                    document.getElementById('counter').textContent = updatedData.totalReservations;
+                    localStorage.setItem('hasReserved', 'true'); // Marcar que el usuario ha reservado
+                } catch (error) {
+                    console.error('Error al realizar la reserva:', error);
+                }
+            });
         }
-    });
-});
+    }
 
-// Incrementar el total de reservas
-app.post('/reservations', (req, res) => {
-    const { increment } = req.body;
-    db.run('UPDATE reservations SET count = count + ? WHERE id = 1', [increment], function(err) {
-        if (err) {
-            res.status(500).json({ error: err.message });
-        } else {
-            res.json({ totalReservations: this.changes });
-        }
-    });
-});
-
-// Iniciar el servidor
-app.listen(PORT, () => {
-    console.log(`Servidor corriendo en http://localhost:${PORT}`);
-});
+    // Inicializar el contador al cargar la página
+    window.onload = initializeCounter;
+</script>
