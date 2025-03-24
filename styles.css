@@ -1,18 +1,17 @@
-/* Fondo y partículas */
+/* Estilo pixel art y fondo animado */
 body {
-  font-family: 'Press Start 2P', cursive; /* Fuente pixelada */
+  font-family: 'Press Start 2P', cursive;
   background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
   overflow: hidden;
   color: #ffffff;
   margin: 0;
   padding: 0;
-  text-align:
-}center;
+  text-align: center;
+}
 
 header {
   position: relative;
   padding: 20px;
-  z-index: 1;
 }
 
 header h1 {
@@ -24,7 +23,6 @@ header h1 {
   padding: 10px;
   display: inline-block;
   animation: flicker 1.5s infinite alternate;
-  font-family: 'Press Start 2P', cursive; /* Aplica la fuente pixel art */
 }
 
 header p {
@@ -33,14 +31,6 @@ header p {
   color: #80d0ff;
 }
 
-/* Animación de "flicker" para el título */
-@keyframes flicker {
-  0% { text-shadow: 3px 3px 10px #0ff, 5px 5px 20px #00f; }
-  50% { text-shadow: 3px 3px 20px #ff0, 5px 5px 30px #f00; }
-  100% { text-shadow: 3px 3px 15px #00ffea, 5px 5px 25px #80d0ff; }
-}
-
-/* Secciones */
 section {
   position: relative;
   margin: 20px auto;
@@ -59,7 +49,6 @@ section h2 {
   text-shadow: 1px 1px 5px rgba(0, 255, 234, 0.7);
 }
 
-/* Botones */
 button {
   padding: 12px 25px;
   font-size: 1rem;
@@ -79,29 +68,12 @@ button:hover {
   transform: scale(1.05);
 }
 
-button:disabled {
-  background: #555;
-  cursor: not-allowed;
+@keyframes flicker {
+  0% { text-shadow: 3px 3px 10px #0ff, 5px 5px 20px #00f; }
+  50% { text-shadow: 3px 3px 20px #ff0, 5px 5px 30px #f00; }
+  100% { text-shadow: 3px 3px 15px #00ffea, 5px 5px 25px #80d0ff; }
 }
 
-/* Campos de entrada */
-input, textarea {
-  width: 80%;
-  padding: 10px;
-  margin: 10px 0;
-  border: none;
-  border-radius: 5px;
-  font-size: 1rem;
-  background: rgba(255, 255, 255, 0.1);
-  color: #ffffff;
-}
-
-input:focus, textarea:focus {
-  outline: none;
-  box-shadow: 0px 0px 5px #00bfff;
-}
-
-/* Animaciones */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
@@ -110,24 +82,4 @@ input:focus, textarea:focus {
 @keyframes float {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
-}
-
-/* Partículas */
-.particle {
-  position: absolute;
-  width: 5px;
-  height: 5px;
-  background: linear-gradient(45deg, #ff00ff, #00ffff);
-  border-radius: 50%;
-  animation: fall 6s linear infinite, rotate 6s linear infinite;
-}
-
-@keyframes fall {
-  from { transform: translateY(-100px); }
-  to { transform: translateY(100vh); }
-}
-
-@keyframes rotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
 }
