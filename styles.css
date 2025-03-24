@@ -1,7 +1,8 @@
-/* Fondo y tipografía */
+/* Fondo y partículas */
 body {
-  font-family: 'Roboto', sans-serif;
-  background: linear-gradient(to bottom, #001f3f, #011627);
+  font-family: 'Press Start 2P', cursive; /* Fuente estilo pixel art */
+  background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+  overflow: hidden;
   color: #ffffff;
   margin: 0;
   padding: 0;
@@ -9,39 +10,52 @@ body {
 }
 
 header {
-  background: rgba(0, 0, 50, 0.8);
+  position: relative;
   padding: 20px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+  z-index: 1;
 }
 
 header h1 {
   font-size: 3rem;
   margin: 0;
   color: #00bfff;
-  text-shadow: 2px 2px 10px rgba(0, 191, 255, 0.7);
+  text-shadow: 3px 3px 10px #0ff, 5px 5px 20px #00f;
+  border: 3px solid #00ffea; /* Borde del título */
+  padding: 10px;
+  display: inline-block;
+  animation: flicker 1.5s infinite alternate;
 }
 
 header p {
   font-size: 1.2rem;
-  margin: 10px 0 0;
+  margin-top: 15px;
   color: #80d0ff;
+}
+
+/* Animación de "flicker" para el título */
+@keyframes flicker {
+  0% { text-shadow: 3px 3px 10px #0ff, 5px 5px 20px #00f; }
+  50% { text-shadow: 3px 3px 20px #ff0, 5px 5px 30px #f00; }
+  100% { text-shadow: 3px 3px 15px #00ffea, 5px 5px 25px #80d0ff; }
 }
 
 /* Secciones */
 section {
+  position: relative;
   margin: 20px auto;
   padding: 20px;
   max-width: 800px;
-  background: rgba(0, 15, 50, 0.9);
+  background: rgba(0, 15, 50, 0.8);
   border-radius: 10px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.7);
+  animation: fadeIn 1s ease-in-out, float 6s infinite;
 }
 
 section h2 {
   font-size: 1.8rem;
   margin-bottom: 15px;
-  color: #00bfff;
-  text-shadow: 1px 1px 5px rgba(0, 191, 255, 0.7);
+  color: #00ffea;
+  text-shadow: 1px 1px 5px rgba(0, 255, 234, 0.7);
 }
 
 /* Botones */
@@ -55,11 +69,13 @@ button {
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
+  border: 3px solid transparent;
 }
 
 button:hover {
-  background: #0086bf;
-  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.6);
+  border: 3px solid #00ffea;
+  box-shadow: 0px 0px 10px #00ffea, 0px 0px 20px #00bfff;
+  transform: scale(1.05);
 }
 
 button:disabled {
@@ -84,13 +100,33 @@ input:focus, textarea:focus {
   box-shadow: 0px 0px 5px #00bfff;
 }
 
-/* Links */
-a {
-  color: #00bfff;
-  text-decoration: none;
-  transition: color 0.3s;
+/* Animaciones */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-a:hover {
-  color: #0086bf;
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Partículas */
+.particle {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: linear-gradient(45deg, #ff00ff, #00ffff);
+  border-radius: 50%;
+  animation: fall 6s linear infinite, rotate 6s linear infinite;
+}
+
+@keyframes fall {
+  from { transform: translateY(-100px); }
+  to { transform: translateY(100vh); }
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
