@@ -1,13 +1,13 @@
 /* Fondo y partículas */
 body {
-  font-family: 'Press Start 2P', cursive; /* Fuente estilo pixel art */
+  font-family: 'Press Start 2P', cursive; /* Fuente pixelada */
   background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
   overflow: hidden;
   color: #ffffff;
   margin: 0;
   padding: 0;
-  text-align: center;
-}
+  text-align:
+}center;
 
 header {
   position: relative;
@@ -20,10 +20,11 @@ header h1 {
   margin: 0;
   color: #00bfff;
   text-shadow: 3px 3px 10px #0ff, 5px 5px 20px #00f;
-  border: 3px solid #00ffea; /* Borde del título */
+  border: 3px solid #00ffea;
   padding: 10px;
   display: inline-block;
   animation: flicker 1.5s infinite alternate;
+  font-family: 'Press Start 2P', cursive; /* Aplica la fuente pixel art */
 }
 
 header p {
