@@ -53,3 +53,21 @@ postUpdateBtn.addEventListener("click", async () => {
     alert("Por favor, escribe algo o sube una imagen.");
   }
 });
+// Generar partículas arcoiris
+function createParticles() {
+  const body = document.body;
+
+  for (let i = 0; i < 100; i++) {
+    const particle = document.createElement('div');
+    particle.classList.add('particle');
+    particle.style.left = Math.random() * 100 + 'vw';
+    particle.style.animationDelay = Math.random() * 5 + 's';
+    particle.style.opacity = Math.random();
+    body.appendChild(particle);
+  }
+}
+
+// Llamar a la función al cargar la página
+window.onload = () => {
+  createParticles();
+};
