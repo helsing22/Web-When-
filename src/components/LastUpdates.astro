@@ -1,0 +1,35 @@
+---
+const updates = await Astro.glob("../content/updates/*.mdx");
+
+updates.sort((a, b) => {
+  const fechaA = new Date(a.frontmatter.pubDate);
+  const fechaB = new Date(b.frontmatter.pubDate);
+  return fechaB.getTime() - fechaA.getTime();
+});
+const lastUpdates = updates.slice(0, 3);
+---
+
+<section>
+  <h2>Últimas Actualizaciones</h2>
+  {
+    lastUpdates.map(async (actualizacion) => (
+      <article>
+        <h3>{actualizacion.frontmatter.title}</h3>
+        <p>Fecha: {actualizacion.frontmatter.pubDate}</p>
+        <actualizacion.Content/>
+      </article>
+    ))
+  }
+</section>
+
+<style>
+  section {
+    margin-bottom: 2rem;
+  }
+
+  article {
+    border: 1px solid #ddd;
+    margin-bottom: 1rem;
+    padding: 1rem;
+  }
+</style>
