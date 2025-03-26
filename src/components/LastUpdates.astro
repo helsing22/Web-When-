@@ -9,15 +9,16 @@ updates.sort((a, b) => {
 const lastUpdates = updates.slice(0, 3);
 ---
 
-<section>
-  <h2>Últimas Actualizaciones</h2>
+<div>
   {
     lastUpdates.map(async (actualizacion) => (
-      <article>
-        <h3>{actualizacion.frontmatter.title}</h3>
-        <p>Fecha: {actualizacion.frontmatter.pubDate}</p>
-        <actualizacion.Content/>
+      <article class="mb-12">
+        <h3 class="text-4xl">{actualizacion.frontmatter.title}</h3>
+        <p class="text-sm font-press-start-2p text-silver-lake-blue">Fecha: {actualizacion.frontmatter.pubDate}</p>
+        <div class="text-2xl mt-4">
+          <actualizacion.Content />
+        </div>
       </article>
     ))
   }
-</section>
+</div>
