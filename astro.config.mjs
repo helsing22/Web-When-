@@ -12,6 +12,7 @@ export default defineConfig({
   integrations: [mdx(), sitemap()],
 
   vite: {
+    assetsInclude: ['**/*.ttf', '**/*.woff', '**/*.woff2'],
     plugins: [
       tailwindcss(),
     ],
