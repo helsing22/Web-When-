@@ -10,10 +10,15 @@
   },
   "dependencies": {
     "@astrojs/mdx": "^4.2.1",
+    "@astrojs/react": "^4.2.2",
     "@astrojs/rss": "^4.0.11",
     "@astrojs/sitemap": "^3.3.0",
     "@tailwindcss/vite": "^4.0.16",
+    "@types/react": "^19.0.12",
+    "@types/react-dom": "^19.0.4",
     "astro": "^5.5.4",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "tailwindcss": "^4.0.16"
   }
 }

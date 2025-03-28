@@ -1,0 +1,67 @@
+<custom-dropdown>
+  <div data-dropdown-container class='relative max-w-min'>
+    <button class='flex items-center justify-center'>
+      <slot name='icon'>
+        <svg
+          data-slot='icon'
+          fill='none'
+          stroke-width='1.5'
+          stroke='currentColor'
+          viewBox='0 0 24 24'
+          xmlns='http://www.w3.org/2000/svg'
+          aria-hidden='true'
+          class='size-12'
+        >
+          <path
+            stroke-linecap='round'
+            stroke-linejoin='round'
+            d='M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5'></path>
+        </svg>
+      </slot>
+    </button>
+    <div
+      data-dropdown-menu
+      class='shadow-xl bg-rich-black rounded-sm absolute flex flex-col min-w-max hidden right-2'
+    >
+      <slot />
+    </div>
+  </div>
+</custom-dropdown>
+
+<script>
+  class Dropdown extends HTMLElement {
+    isShow = false;
+    container: null | HTMLElement = null;
+    menu: null | HTMLElement = null;
+    connectedCallback() {
+      this.container = this.querySelector("[data-dropdown-container]");
+      this.menu = this.querySelector("[data-dropdown-menu]");
+      this.isShow = !this.classList.contains("hidden");
+      this.container?.addEventListener("click", this.onClick.bind(this));
+      console.log(this.menu)
+    }
+
+    onClick(e: MouseEvent) {
+      e.stopPropagation();
+      console.log("click");
+      if (!this.isShow) {
+        document.addEventListener("click", this.onClickOut.bind(this));
+      } else {
+        document.removeEventListener("click", this.onClickOut.bind(this));
+      }
+      this.isShow = !this.isShow;
+      console.log(this.menu);
+      this.menu?.classList.toggle("hidden");
+    }
+
+    onClickOut(e: MouseEvent) {
+      console.log("sads");
+      if (!this.container?.contains(e.target as Node)) {
+        e.stopPropagation();
+        this.menu?.classList.add("hidden");
+      }
+    }
+  }
+
+  customElements.define("custom-dropdown", Dropdown);
+</script>
